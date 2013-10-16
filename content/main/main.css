@@ -50,11 +50,13 @@
     width: 60%;
     text-align: left;
     vertical-align: middle;
+    position: relative;
     /*display: table-cell;*/
 }
 .main article h3 {text-align: center;}
 .main article>section {
-    display: table-cell;
+    /*display: table-cell;*/
+    position: absolute;
 }
 
 /**********
