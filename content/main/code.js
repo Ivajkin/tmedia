@@ -21,6 +21,7 @@ $(document).ready(function () {
         $('.main div.hovered').toggleClass('hovered');
         $(this).toggleClass('hovered');
 
+        $('.main section').stop(true,true);
         $('.main section').eq(idprev).fadeOut(hidetime, function(){
             $('.main section').eq(idnext).fadeIn(hidetime*0.7, function(){
                 fix_resize();
