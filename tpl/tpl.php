@@ -70,7 +70,7 @@
                 <a href="contacts.php"><img class="simplehide" src="img/ico/cont.png" alt="Techno Media Техно Медиа Контакты" title="Контакты" /><span>Контакты</span></a>
             </nav>
             <div class="clearfix" role="telephone">
-                <a class="simplelink" style="font-family: 'Segoe UI Semibold';" href="tel: +74212757854">+7(4212) 75-78-54</a>
+                <a class="simplelink" style="font-family: 'Segoe UI Semibold';" href="tel: +79243060613">+7(4212) 306-06-13</a>
                 <!--Page Title/Header-->
                 <?php echo $header_h1; ?>
             </div>
@@ -129,7 +129,18 @@
     var mediawidth1 = 870;
     var mediawidthmax = 1140;
     //Dynamic border
-    var br_top_h, main_h, wside_w, eside_w
+    var br_top_h, main_h, wside_w, eside_w;
+
+    $('html').toggleClass('scroll');
+    $("html").niceScroll({
+        cursorcolor:"#800098",
+        cursoropacitymin: 0,
+        cursoropacitymax: 0.8,
+        cursorborderradius: 0,
+        hwacceleration: true,
+        autohidemode: true,
+        cursorwidth: '10px'
+    });
 
     var fix_resize = function () {
         mediaq= $(document).width();

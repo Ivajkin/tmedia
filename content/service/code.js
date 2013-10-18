@@ -6,12 +6,13 @@ textarea_resize= function(){
         parseFloat($('.allend .feedback-form textarea').css('padding-left'));
 
     $('.allend .feedback-form>div').eq(2).css('height',
-        $('.allend .feedback-form>div').eq(0).height()*true_h+'px');
+        $('.allend .feedback-form>div').eq(0).height()*true_h*2+'px');
 
+    tmp= $('.allend .feedback-form>div').eq(2).height()- ( $('.allend .feedback-form .chk-wrapper').height() + parseInt($('.allend .feedback-form .chk-wrapper').css('margin-bottom')) +
+        $('.allend .feedback-form button').height() +
+        parseInt($('.allend .feedback-form textarea').css('padding-top')) );
     $('.allend .feedback-form textarea').css('height', (
-        $('.allend .feedback-form>div').eq(2).height()- ( $('.allend .feedback-form .chk-wrapper').height() + parseInt($('.allend .feedback-form .chk-wrapper').css('margin-bottom')) +
-                                                            $('.allend .feedback-form button').height() +
-                                                            parseInt($('.allend .feedback-form textarea').css('padding-top')) )
+        tmp
     )+'px');
     $('.allend .feedback-form button').css('width', (tw*true_w+1)+'px');
 
@@ -211,7 +212,7 @@ infoclick= function(event){
 
     $('.main article>div').toggleClass('sect-more-wrapper');
     if (infostatus) {
-        $('.main article section').not($(this)).slideToggle('slow', function(){
+        $('.main article section').not($(this)).toggle('explode', 'slow', function(){ //slideToggle
             if (i++ == sectcount) {
                 $(event.currentTarget).toggleClass('sect-more')
                     .toggleClass('clearfix')
@@ -231,7 +232,7 @@ infoclick= function(event){
         $(this).children('div').fadeToggle('slow', function(){
             $(event.currentTarget).toggleClass('sect-more')
                 .toggleClass('clearfix');
-            $('.main article section').not($(event.currentTarget)).slideToggle('slow', function(){
+            $('.main article section').not($(event.currentTarget)).toggle('explode', 'slow', function(){ //slideToggle
                 if (i++ == sectcount) {
                     infostatus= !infostatus;
                     fix_resize();

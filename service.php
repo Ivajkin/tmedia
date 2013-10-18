@@ -1,7 +1,7 @@
 <?php
 require_once 'namespace.php';
 
-    $header_h1 = '<h1 role="heading">что <a href="callto:+79242005039"><span class="mcolor">мы</span></a> можем предложить</h1>';
+    $header_h1 = '<h1 role="heading">что <a href="callto:+79243060613"><span class="mcolor">мы</span></a> можем предложить</h1>';
     $main_block .= 'content/service/main.html';
     $more_block .= 'content/service/more.php';
     $script_block .= 'content/service/code.js';
@@ -12,6 +12,7 @@ EOT;
     $script_lib = <<<EOT
                 <script src="js/jquery.maskedinput.min.js"></script>
                 <script src="js/jquery.transit.min.js"></script>
+                <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
 EOT;
 
 // PHP v5.2.0+ required

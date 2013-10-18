@@ -17,5 +17,5 @@
 tmp/*
 site/*
 add/adapter/*
-*.md
+#*.md
 *.psd

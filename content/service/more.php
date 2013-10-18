@@ -3,7 +3,7 @@
 <!--<link type="text/css" rel="Stylesheet" href="<?php echo CaptchaUrls::LayoutStylesheetUrl() ?>" />-->
 <header>
     <h2>закажите услуги профессионалов</h2>
-    <p>По телефонам <a href="tel:+74212757854" class="nowrap">+7(4212) 75-78-54</a>, <a href="tel:+79242005039" class="nowrap">+7(924) 200-50-39</a>.<br />
+    <p>По телефонам <a href="tel:+74212757854" class="nowrap">+7(4212) 75-78-54</a>, <a href="tel:+79243060613" class="nowrap">+7(924) 306-06-13</a>.<br />
     Или заполните форму ниже.</p>
 </header>
 <div class="feedback-form">
@@ -16,10 +16,10 @@
         </div>-->
         <?php
         // only show the Captcha if it hasn't been already solved for the current message
-        if(/*!$ContactCaptcha->IsSolved*/true) { ?>
+        /*if(/*!$ContactCaptcha->IsSolved*//*true) { ?>
             <?php echo $ContactCaptcha->Html(); ?>
             <input type="text" name="captchacode" id="captchacode" value="КОД С КАРТИНКИ" data-def="КОД С КАРТИНКИ" lang="en" title="Введите код с картинки"/>
-        <?php }?>
+        <?php }*/?>
     </div>
     <div class="invisible">...</div>
     <div>
