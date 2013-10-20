@@ -93,6 +93,7 @@ html.scroll {
 body {
     font: 1em/1.625em 'Segoe UI', sans-serif;
     font-weight: normal;
+    min-width: 400px;
 }
 
 /*.wrapper {
