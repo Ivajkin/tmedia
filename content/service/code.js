@@ -71,6 +71,9 @@ $('.feedback-form button').click(function(index){
         } else
             $(this).css('border-color', '#C8C8C8');
     });
+    if ( !$('.feedback-form .chk-box input[type="checkbox"]').is(':checked') &&
+        $('.feedback-form textarea').val() == $('.feedback-form textarea').data('def') )
+            msg+= '\n\rПожалуйста выберите услугу из списка или опишите её в текстовом поле.';
     if (msg.length) {
         alert('Пожалуйста заполните следующие поля:\n\r'+msg);
         return;
@@ -112,11 +115,11 @@ var formElements = $('.feedback-form input[type="text"], .feedback-form textarea
 gopost= function(){
     var postData = {};
     formElements.each( function(){
-        if(this.id == captchaUserInputId){
+        /*if(this.id == captchaUserInputId){
             // In case of our Captcha field, we also send the InstanceId
             captchaUserInputField = $('#' + captchaUserInputId).get(0);
             postData["CaptchaInstanceId"] = captchaUserInputField.Captcha.InstanceId;
-        }
+        }*/
         postData[$(this).attr('name')] = $(this).val();
     });
     postData['ckbox']= [];
@@ -131,7 +134,7 @@ console.log('BEFORE');
 function postValidation(data, status){
     console.log(status);
     console.log(data);
-    if (data[captchaUserInputId]){
+    /*if (data[captchaUserInputId]){
 
         // Get the Captcha instance, as per client side API
         captcha = $('#' + captchaUserInputId).get(0).Captcha;
@@ -150,7 +153,7 @@ function postValidation(data, status){
             alert('Код с картинки введён неверно. Пожалуйста, попробуйте ещё раз.');
             return;
         }
-    }
+    }*/
 
     if (data["Form"] && data["Form"]["isValid"]){
         //$("#SubmitButton").attr("disabled", "disabled");
@@ -208,11 +211,11 @@ infostatus= true;
 infoclick= function(event){
     i= 0;
     fxtime= 800;
-    sectcount=7;
+    sectcount=8;
 
     $('.main article>div').toggleClass('sect-more-wrapper');
     if (infostatus) {
-        $('.main article section').not($(this)).toggle('explode', 'slow', function(){ //slideToggle
+        $('.main article section')./*not($(this)).*/toggle('explode', 'slow', function(){ //slideToggle
             if (i++ == sectcount) {
                 $(event.currentTarget).toggleClass('sect-more')
                     .toggleClass('clearfix')
@@ -220,12 +223,13 @@ infoclick= function(event){
                         infostatus= !infostatus;
                         fix_resize();
                         $(event.currentTarget).children('h3').transition ({
-                            'left': '0%'
-                        }, 800,
+                                'left': '0%'
+                            }, 800,
                             'cubic-bezier(0,0.9,0.3,1)',
-                           function(){$(this).css('position', 'static');}
+                            function(){$(this).css('position', 'static');}
                         );
                     });
+                $(event.currentTarget).toggle('puff');
             }
         });
     } else {
@@ -233,7 +237,7 @@ infoclick= function(event){
             $(event.currentTarget).toggleClass('sect-more')
                 .toggleClass('clearfix');
             $('.main article section').not($(event.currentTarget)).toggle('explode', 'slow', function(){ //slideToggle
-                if (i++ == sectcount) {
+                if (i++ == sectcount-1) {
                     infostatus= !infostatus;
                     fix_resize();
                 }

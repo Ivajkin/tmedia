@@ -6,7 +6,7 @@ textarea_resize= function(){
         parseFloat($('.allend .feedback-form textarea').css('padding-left'));
 
     $('.allend .feedback-form>div').eq(2).css('height',
-        $('.allend .feedback-form>div').eq(0).height()*true_h+'px');
+        2*$('.allend .feedback-form>div').eq(0).height()*true_h+'px');
     $('.allend .feedback-form button').css('width', (tw*true_w+1)+'px');
     console.log(tw*true_w);
 }
@@ -125,11 +125,11 @@ var formElements = $('.feedback-form input, .feedback-form textarea');
 gopost= function(){
         var postData = {};
         formElements.each( function(){
-                if(this.id == captchaUserInputId){
+                /*if(this.id == captchaUserInputId){
                     // In case of our Captcha field, we also send the InstanceId
                     captchaUserInputField = $('#' + captchaUserInputId).get(0);
                     postData["CaptchaInstanceId"] = captchaUserInputField.Captcha.InstanceId;
-                }
+                }*/
                 postData[$(this).attr('name')] = $(this).val();
         });
 
@@ -140,7 +140,7 @@ gopost= function(){
 function postValidation(data, status){
     console.log(status);
     console.log(data);
-    if (data[captchaUserInputId]){
+    /*if (data[captchaUserInputId]){
 
         // Get the Captcha instance, as per client side API
         captcha = $('#' + captchaUserInputId).get(0).Captcha;
@@ -160,7 +160,7 @@ function postValidation(data, status){
             alert('Код с картинки введён неверно. Пожалуйста, попробуйте ещё раз.');
             return;
         }
-    }
+    }*/
 
     if (data["Form"] && data["Form"]["isValid"]){
         //$("#SubmitButton").attr("disabled", "disabled");

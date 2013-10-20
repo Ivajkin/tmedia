@@ -67,10 +67,11 @@ function setElementValidationResult($status, $validContent = null, $validationMe
 
 // validate the Captcha
 function ValidateCaptchacode($code) {
-    global $ContactCaptcha;
+    return setElementValidationResult(true, null, "Solved!");
+    /*global $ContactCaptcha;
     /*$ContactCaptcha = new Captcha("ContactCaptcha");
     $ContactCaptcha->UserInputID = "captchacode";*/
-    global $request;
+    /*global $request;
     $instanceId = $request["CaptchaInstanceId"];
     // We want to check if the user already solved the Captcha for this message
     $isHuman = $ContactCaptcha->IsSolved;
@@ -78,7 +79,7 @@ function ValidateCaptchacode($code) {
     /*=====================$isHuman = false for prevent chrome cookie policy=========================
 =======================================================================
 */
-    if (!$isHuman) {
+    /*if (!$isHuman) {
         // Validate the captcha
         // Both the user entered $code and $instanceId are used.
         $isHuman = $ContactCaptcha->Validate($code, $instanceId);
@@ -87,7 +88,7 @@ function ValidateCaptchacode($code) {
         return setElementValidationResult(true, null, "Solved!");
     } else {
         return setElementValidationResult(false, null, "Please retype the code.");
-    }
+    }*/
 }
 
 // name validation
@@ -202,7 +203,7 @@ if (count($request)) {
     // Regular response to POST form submission
 
     // We want to make sure our Captcha is solved before continuing
-    if (!$isFormValid || !$ContactCaptcha->IsSolved) {
+    if (!$isFormValid /*|| !$ContactCaptcha->IsSolved*/) {
         // Form validation failed, show our error message
         $validationResult['Form'] = setElementValidationResult(false, null, "Please review your input.");
     } else {

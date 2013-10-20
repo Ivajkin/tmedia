@@ -33,4 +33,7 @@ $ContactCaptcha->ImageStyle = ImageStyle::CaughtInTheNet2;
 require("content/service/sendmail.php");
 
     include $sitedir.'tpl/tpl.php';
+/*echo $ContactCaptcha->Html();
+echo '<link href="add/botdetect/lib/botdetect/public/lbd_layout.css" rel="stylesheet" /><input type="text" name="captchacode" id="captchacode" value="КОД С КАРТИНКИ" data-def="КОД С КАРТИНКИ" lang="en" title="Введите код с картинки"/>';*/
+
 ?>

@@ -17,10 +17,10 @@
         </div>-->
         <?php
         // only show the Captcha if it hasn't been already solved for the current message
-        if(/*!$ContactCaptcha->IsSolved*/true) { ?>
+        /*if(/*!$ContactCaptcha->IsSolved*//*true) { ?>
             <?php echo $ContactCaptcha->Html(); ?>
             <input type="text" name="Captchacode" id="Captchacode" value="КОД С КАРТИНКИ" data-def="КОД С КАРТИНКИ" lang="en" />
-        <?php }?>
+        <?php }*/?>
     </div>
     <div class="invisible">...</div>
     <div>
