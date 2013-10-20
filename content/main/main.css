@@ -55,6 +55,7 @@
 .main article h3 {text-align: center;}
 .main article>section {
     /*position: absolute;*/
+    min-height: 300px;
 }
 
 /**********
