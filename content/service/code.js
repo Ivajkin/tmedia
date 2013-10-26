@@ -1,52 +1,52 @@
 textarea_resize= function(){
     true_h= 0.975103734439834;
     true_w= 2-0.9928678676888749;
-    tw= $('.allend .feedback-form textarea').width()+
-        parseFloat($('.allend .feedback-form textarea').css('padding-right'))+
-        parseFloat($('.allend .feedback-form textarea').css('padding-left'));
+    tw= $('.service .allend .feedback-form textarea').width()+
+        parseFloat($('.service .allend .feedback-form textarea').css('padding-right'))+
+        parseFloat($('.service .allend .feedback-form textarea').css('padding-left'));
 
-    $('.allend .feedback-form>div').eq(2).css('height',
-        $('.allend .feedback-form>div').eq(0).height()*true_h*2+'px');
+    $('.service .allend .feedback-form>div').eq(2).css('height',
+        $('.service .allend .feedback-form>div').eq(0).height()*true_h*2+'px');
 
-    tmp= $('.allend .feedback-form>div').eq(2).height()- ( $('.allend .feedback-form .chk-wrapper').height() + parseInt($('.allend .feedback-form .chk-wrapper').css('margin-bottom')) +
-        $('.allend .feedback-form button').height() +
-        parseInt($('.allend .feedback-form textarea').css('padding-top')) );
-    $('.allend .feedback-form textarea').css('height', (
+    tmp= $('.service .allend .feedback-form>div').eq(2).height()- ( $('.service .allend .feedback-form .chk-wrapper').height() + parseInt($('.service .allend .feedback-form .chk-wrapper').css('margin-bottom')) +
+        $('.service .allend .feedback-form button').height() +
+        parseInt($('.service .allend .feedback-form textarea').css('padding-top')) );
+    $('.service .allend .feedback-form textarea').css('height', (
         tmp
     )+'px');
-    $('.allend .feedback-form button').css('width', (tw*true_w+1)+'px');
+    $('.service .allend .feedback-form button').css('width', (tw*true_w+1)+'px');
 
     console.log(tw*true_w);
 }
 captcha_resize= function(){
     coef= 2-50/52;
-    obj= $('.LBD_CaptchaImageDiv img');
+    obj= $('.service .LBD_CaptchaImageDiv img');
 
     baseh= obj.parents('.LBD_CaptchaDiv').height();
     obj.css('height', (coef*baseh)+'px');
 }
 
 jQuery(function($){
-    $('.feedback-form input[name="Phone"]').mask("+7 9999-999-999");
+    $('.service .feedback-form input[name="Phone"]').mask("+7 9999-999-999");
 });
 
-$('.feedback-form input[type="text"], .feedback-form textarea').focus(function(){
+$('.service .feedback-form input[type="text"], .service .feedback-form textarea').focus(function(){
     if ($(this).val() == $(this).data('def'))
         $(this).val('');
 });
-$('.feedback-form input[type="text"], .feedback-form textarea').focusout(function(){
+$('.service .feedback-form input[type="text"], .service .feedback-form textarea').focusout(function(){
     if (!$(this).val()) {
         $(this).val($(this).data('def'));
     }
 });
 
-$('.feedback-form button').mouseenter(function(){
+$('.service .feedback-form button').mouseenter(function(){
     $(this).css('background-color', '#620C72');
 });
-$('.feedback-form button').mouseleave(function(){
+$('.service .feedback-form button').mouseleave(function(){
     $(this).css('background-color', '#580068');
 });
-$('.feedback-form button').mousedown(function(){
+$('.service .feedback-form button').mousedown(function(){
     $(this).css({
         'background-color': '#74038A',
         '-webkit-box-shadow': '0px 0px 40px rgba(133, 33, 112, 0.75)',
@@ -54,7 +54,7 @@ $('.feedback-form button').mousedown(function(){
         'box-shadow':         '0px 0px 40px rgba(133, 33, 112, 0.75)'
     });
 });
-$('.feedback-form button').mouseup(function(){
+$('.service .feedback-form button').mouseup(function(){
     $(this).css({
         'background-color': '#580068',
         '-webkit-box-shadow': 'none',
@@ -62,30 +62,30 @@ $('.feedback-form button').mouseup(function(){
         'box-shadow':         'none'
     });
 });
-$('.feedback-form button').click(function(index){
+$('.service .feedback-form button').click(function(index){
     msg= '';
-    $('.feedback-form input[type="text"]').each(function(){
+    $('.service .feedback-form input[type="text"]').each(function(){
         if( $(this).val() == $(this).data('def')) {
             msg+= '*  '+$(this).data('def')+'\n\r';
             $(this).css('border-color', 'red');
         } else
             $(this).css('border-color', '#C8C8C8');
     });
-    if ( !$('.feedback-form .chk-box input[type="checkbox"]').is(':checked') &&
-        $('.feedback-form textarea').val() == $('.feedback-form textarea').data('def') )
+    if ( !$('.service .feedback-form .chk-box input[type="checkbox"]').is(':checked') &&
+        $('.service .feedback-form textarea').val() == $('.service .feedback-form textarea').data('def') )
             msg+= '\n\rПожалуйста выберите услугу из списка или опишите её в текстовом поле.';
     if (msg.length) {
         alert('Пожалуйста заполните следующие поля:\n\r'+msg);
         return;
     }
 
-    msg= $('.feedback-form input[name="Email"]').val().match(/[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/i);
+    msg= $('.service .feedback-form input[name="Email"]').val().match(/[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/i);
     if (!msg) {
-        $('.feedback-form input[name="Email"]').css('border-color', 'red');
+        $('.service .feedback-form input[name="Email"]').css('border-color', 'red');
         alert('Указанный e-mail не соответствует формату.\n\rПожалуйста введите его снова.');
         return;
     } else
-        $('.feedback-form input[name="Email"]').css('border-color', '#C8C8C8');
+        $('.service .feedback-form input[name="Email"]').css('border-color', '#C8C8C8');
 
     gopost();
 });
@@ -104,12 +104,12 @@ $(window).resize(function () {
 // Define the name of the Captcha field.
 // It serves to access BotDetect Captcha client-side API later.
 // http://captcha.com/doc/php/api/captcha-client-side-reference.html
-var captchaname = '.feedback-form input[name="captchacode"]';
+var captchaname = '.service .feedback-form input[name="captchacode"]';
 var captchaUserInputId = 'captchacode';
 // AJAX argument is added to differentiate from regular POST.
 var validationUrl = "service.php?AJAX=1";
 // Collect form elements we want to handle.
-var formElements = $('.feedback-form input[type="text"], .feedback-form textarea');
+var formElements = $('.service .feedback-form input[type="text"], .service .feedback-form textarea');
 //var form = $('#contactForm');
 
 gopost= function(){
@@ -123,7 +123,7 @@ gopost= function(){
         postData[$(this).attr('name')] = $(this).val();
     });
     postData['ckbox']= [];
-    $('.feedback-form .chk-box input[type="checkbox"]:checked').parent().each(function(){
+    $('.service .feedback-form .chk-box input[type="checkbox"]:checked').parent().each(function(){
         postData['ckbox'].push($(this).text());
     });
 console.log('BEFORE');
@@ -186,20 +186,20 @@ $(document).ready(function () {
 
     }*/
 
-    $('.feedback-form .LBD_CaptchaDiv, .feedback-form .LBD_CaptchaImageDiv, .feedback-form .LBD_CaptchaIconsDiv').removeAttr('style');
+    $('.service .feedback-form .LBD_CaptchaDiv, .service .feedback-form .LBD_CaptchaImageDiv, .service .feedback-form .LBD_CaptchaIconsDiv').removeAttr('style');
 
-    $('.feedback-form .LBD_CaptchaImageDiv a').attr({'href': 'javascript:void(0)', 'target': '_self', 'title': 'Нажмите для обновления картинки'})
+    $('.service .feedback-form .LBD_CaptchaImageDiv a').attr({'href': 'javascript:void(0)', 'target': '_self', 'title': 'Нажмите для обновления картинки'})
         .click(function(){
             ContactCaptcha.ReloadImage();
             return false;
         });
     /*tmpfunc= ContactCaptcha.ReloadImage;
      ContactCaptcha.ReloadImage= function(){
-     $('.feedback-form .LBD_CaptchaImageDiv img').appendTo('.feedback-form .LBD_CaptchaImageDiv a');
+     $('.service .feedback-form .LBD_CaptchaImageDiv img').appendTo('.service .feedback-form .LBD_CaptchaImageDiv a');
      tmpfunc();
      }
-     $('.feedback-form .LBD_CaptchaImageDiv').ready(function () {
-     $('.feedback-form .LBD_CaptchaImageDiv img').appendTo('.feedback-form .LBD_CaptchaImageDiv');
+     $('.service .feedback-form .LBD_CaptchaImageDiv').ready(function () {
+     $('.service .feedback-form .LBD_CaptchaImageDiv img').appendTo('.service .feedback-form .LBD_CaptchaImageDiv');
      });*/
 });
 
@@ -213,9 +213,9 @@ infoclick= function(event){
     fxtime= 800;
     sectcount=8;
 
-    $('.main article>div').toggleClass('sect-more-wrapper');
+    $('.service .main article>div').toggleClass('sect-more-wrapper');
     if (infostatus) {
-        $('.main article section')./*not($(this)).*/toggle('explode', 'slow', function(){ //slideToggle
+        $('.service .main article section')./*not($(this)).*/toggle('explode', 'slow', function(){ //slideToggle
             if (i++ == sectcount) {
                 $(event.currentTarget).toggleClass('sect-more')
                     .toggleClass('clearfix')
@@ -236,7 +236,7 @@ infoclick= function(event){
         $(this).children('div').fadeToggle('slow', function(){
             $(event.currentTarget).toggleClass('sect-more')
                 .toggleClass('clearfix');
-            $('.main article section').not($(event.currentTarget)).toggle('explode', 'slow', function(){ //slideToggle
+            $('.service .main article section').not($(event.currentTarget)).toggle('explode', 'slow', function(){ //slideToggle
                 if (i++ == sectcount-1) {
                     infostatus= !infostatus;
                     fix_resize();
@@ -245,22 +245,22 @@ infoclick= function(event){
         });
     }
 }
-    $('.main article section').on('click', infoclick);
-    $('.main article section>div').on('click', function(event){
+    $('.service .main article section').on('click', infoclick);
+    $('.service .main article section>div').on('click', function(event){
         event.stopImmediatePropagation();
         //9$(this).css('background', '#fff');
     });
 
-$('.main section .site-ext>div').mouseenter( function(){
-    idprev= parseInt($('.main section .site-ext>div.hovered').data('id'));
+$('.service .main section .site-ext>div').mouseenter( function(){
+    idprev= parseInt($('.service .main section .site-ext>div.hovered').data('id'));
     idnext= parseInt($(this).data('id'));
     hidetime= 600;
 
-    $('.main section .site-ext>div.hovered').toggleClass('hovered');
+    $('.service .main section .site-ext>div.hovered').toggleClass('hovered');
     $(this).toggleClass('hovered');
 
-    $('.main section .site-data>div').eq(idprev).fadeOut(hidetime, function(){
-        $('.main section .site-data>div').eq(idnext).fadeIn(hidetime*0.7, function(){
+    $('.service .main section .site-data>div').eq(idprev).fadeOut(hidetime, function(){
+        $('.service .main section .site-data>div').eq(idnext).fadeIn(hidetime*0.7, function(){
             fix_resize();
         });
     });

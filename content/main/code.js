@@ -35,16 +35,16 @@ function animateScroll(name) {
 /*}*/
 
 $(document).ready(function () {
-    $('.main>div>div').mouseenter( function(){
-        idprev= parseInt($('.main div.hovered').data('id'));
+    $('.index .main>div>div').mouseenter( function(){
+        idprev= parseInt($('.index .main div.hovered').data('id'));
         idnext= parseInt($(this).data('id'));
         hidetime= 600;
 
-        $('.main div.hovered').toggleClass('hovered');
+        $('.index .main div.hovered').toggleClass('hovered');
         $(this).toggleClass('hovered');
 
-        $('.main section').stop(true,true);
-        $('.main section').eq(idprev).fadeOut(hidetime, function(){
+        $('.index .main section').stop(true,true);
+        $('.index .main section').eq(idprev).fadeOut(hidetime, function(){
             $('.main section').eq(idnext).fadeIn(hidetime*0.7, function(){
                 fix_resize();
             });

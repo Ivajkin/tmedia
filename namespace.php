@@ -10,6 +10,7 @@
     $main_block= $sitedir;
     $more_block = $sitedir;
     $script_block = $sitedir;
+    $csslocal = '';
     $css_lib = '';
     $script_lib = '';
 

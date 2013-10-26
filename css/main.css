@@ -637,6 +637,13 @@ a.simplelink:hover {
     visibility: hidden;
 }
 .simplehide {display: none;}
+.s-opacity {
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0); /* IE 5.5+*/
+    -moz-opacity: 0; /* Mozilla 1.6 и ниже */
+    -khtml-opacity: 0; /* Konqueror 3.1, Safari 1.1 */
+    opacity: 0; /* CSS3 - Mozilla 1.7b +, Firefox 0.9 +, Safari 1.2+, Opera 9+ */
+
+}
 
 .visuallyhidden {
     border: 0;

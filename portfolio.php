@@ -5,6 +5,7 @@ require_once 'namespace.php';
     $main_block .= 'content/portfolio/portfolio.html';
     $more_block .= '';
     $script_block .= 'content/portfolio/code.js';
+    $csslocal = 'portfolio';
     $css_lib = '<link href="add/amslider/amslider.css" rel="stylesheet">';
     $script_lib = <<<EOT
         <script src="add/amslider/sliderengine/amazingslider.js"></script>

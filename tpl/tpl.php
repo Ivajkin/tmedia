@@ -11,9 +11,10 @@
 <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
     <title>Веб Агентство, Веб Маркетинг / Техно Медиа</title>
-    <meta name="description" content="">
+    <meta name="keywords" content="создать купить заказать сайт в Хабаровске создать интернет магазин разработать программу техподдержка продвижение сайтов Хабаровск" >
+    <meta name="description" content="Если хотите создать сайт, заказать сайт, создать интернет магазин илиразработать программу, заказать техподдержку, купить сайт или заказать продвижение сайтов, обращайтесь сюда: Веб Агентство 'Техно Медиа'">
     <meta name="viewport" content="width=device-width"> <!--, user-scalable=false; initial-scale=1, maximum-scale=1-->
 
     <link rel="stylesheet" href="css/normalize.css">
@@ -42,7 +43,7 @@
 
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
-<body>
+<body class="s-opacity">
 
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
@@ -50,7 +51,7 @@
     improve your experience.</p>
 <![endif]-->
 
-<div class="root-container">
+<div class="root-container <?php echo $csslocal ?>">
     <div class="west-side">
         <!--<div class="invisible">...</div>-->
         <div class="br-up"></div>
@@ -70,7 +71,7 @@
                 <a href="contacts.php"><img class="simplehide" src="img/ico/cont.png" alt="Techno Media Техно Медиа Контакты" title="Контакты" /><span>Контакты</span></a>
             </nav>
             <div class="clearfix" role="telephone">
-                <a class="simplelink" style="font-family: 'Segoe UI Semibold';" href="tel: +79243060613">+7(4212) 306-06-13</a>
+                <a class="simplelink" style="font-family: 'Segoe UI Semibold';" href="tel:+79243060613">+7(924) 306-06-13</a>
                 <!--Page Title/Header-->
                 <?php echo $header_h1; ?>
             </div>
@@ -97,9 +98,10 @@
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
 <script src="js/plugins.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="js/isMobile.min.js"></script>
 <script src="add/nicescroll/jquery.nicescroll.min.js"></script>
-<script src="js/main.js"></script>
+<!--<script src="js/main.js"></script>-->
 <!--Additional JS Libs-->
 <?php echo $script_lib; ?>
 <!-- Yandex.Metrika counter -->
@@ -191,6 +193,13 @@
                 '<polygon points="0,'+((1-b_angle)*br_top_h)+' '+0+','+br_top_h+' '+wside_w+','+br_top_h+' '+wside_w+',0" />'+
             '</svg>'
         );
+
+        if ($('body').hasClass('s-opacity')) setTimeout(showpage, 200);
+    }
+    var showpage= function(){
+        $('body').toggleClass('s-opacity')
+            .toggleClass('simplehide');
+        $('body').toggle( 'fade', 500);
     }
 
     $(document).ready(function () {
@@ -200,6 +209,9 @@
         setTimeout(fix_resize,3000);
     });
     $(window).resize(function () {
+        fix_resize();
+    });
+    $('.main').resize(function () {
         fix_resize();
     });
 

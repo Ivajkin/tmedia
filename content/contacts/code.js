@@ -1,40 +1,52 @@
 textarea_resize= function(){
     true_h= 0.975103734439834;
     true_w= 2-0.9928678676888749;
-    tw= $('.allend .feedback-form textarea').width()+
-        parseFloat($('.allend .feedback-form textarea').css('padding-right'))+
-        parseFloat($('.allend .feedback-form textarea').css('padding-left'));
+    tw= $('.contacts .allend .feedback-form textarea').width()+
+        parseFloat($('.contacts .allend .feedback-form textarea').css('padding-right'))+
+        parseFloat($('.contacts .allend .feedback-form textarea').css('padding-left'));
 
-    $('.allend .feedback-form>div').eq(2).css('height',
-        2*$('.allend .feedback-form>div').eq(0).height()*true_h+'px');
-    $('.allend .feedback-form button').css('width', (tw*true_w+1)+'px');
+    $('.contacts .allend .feedback-form>div').eq(2).css('height',
+        2*$('.contacts .allend .feedback-form>div').eq(0).height()*true_h+'px');
+
+    /*$('.contacts .allend .feedback-form>div').eq(2).css('height',
+     2*$('.contacts .allend .feedback-form>div').eq(0).height()*true_h+'px');
+
+     tmp= $('.contacts .allend .feedback-form>div').eq(2).height()- (
+     $('.contacts .allend .feedback-form button').height() +
+     parseInt($('.contacts .allend .feedback-form textarea').css('padding-top'))
+     );
+     $('.contacts .allend .feedback-form textarea').css('height', (
+     tmp
+     )+'px');*/
+
+    $('.contacts .allend .feedback-form button').css('width', (tw*true_w+1)+'px');
     console.log(tw*true_w);
 }
 captcha_resize= function(){
     coef= 2-50/52;
-    obj= $('.LBD_CaptchaImageDiv img');
+    obj= $('.contacts .LBD_CaptchaImageDiv img');
 
     baseh= obj.parents('.LBD_CaptchaDiv').height();
     obj.css('height', (coef*baseh)+'px');
 }
 
-$('.feedback-form input[type="text"], .feedback-form textarea').focus(function(){
+$('.contacts .feedback-form input[type="text"], .contacts .feedback-form textarea').focus(function(){
     if ($(this).val() == $(this).data('def'))
         $(this).val('');
 });
-$('.feedback-form input[type="text"], .feedback-form textarea').focusout(function(){
+$('.contacts .feedback-form input[type="text"], .contacts .feedback-form textarea').focusout(function(){
     if (!$(this).val()) {
         $(this).val($(this).data('def'));
     }
 });
 
-$('.feedback-form button').mouseenter(function(){
+$('.contacts .feedback-form button').mouseenter(function(){
     $(this).css('background-color', '#620C72');
 });
-$('.feedback-form button').mouseleave(function(){
+$('.contacts .feedback-form button').mouseleave(function(){
     $(this).css('background-color', '#580068');
 });
-$('.feedback-form button').mousedown(function(){
+$('.contacts .feedback-form button').mousedown(function(){
     $(this).css({
         'background-color': '#74038A',
         '-webkit-box-shadow': '0px 0px 40px rgba(133, 33, 112, 0.75)',
@@ -42,7 +54,7 @@ $('.feedback-form button').mousedown(function(){
         'box-shadow':         '0px 0px 40px rgba(133, 33, 112, 0.75)'
     });
 });
-$('.feedback-form button').mouseup(function(){
+$('.contacts .feedback-form button').mouseup(function(){
     $(this).css({
         'background-color': '#580068',
         '-webkit-box-shadow': 'none',
@@ -50,9 +62,9 @@ $('.feedback-form button').mouseup(function(){
         'box-shadow':         'none'
     });
 });
-$('.feedback-form button').click(function(index){
+$('.contacts .feedback-form button').click(function(index){
     msg= '';
-    $('.feedback-form input[type="text"], .feedback-form textarea').each(function(){
+    $('.contacts .feedback-form input[type="text"], .contacts .feedback-form textarea').each(function(){
         if( $(this).val() == $(this).data('def')) {
             msg+= '*  '+$(this).data('def')+'\n\r';
             $(this).css('border-color', 'red');
@@ -64,13 +76,13 @@ $('.feedback-form button').click(function(index){
         return;
     }
 
-    msg= $('.feedback-form input[name="Email"]').val().match(/[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/i);
+    msg= $('.contacts .feedback-form input[name="Email"]').val().match(/[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/i);
     if (!msg) {
-        $('.feedback-form input[name="Email"]').css('border-color', 'red');
+        $('.contacts .feedback-form input[name="Email"]').css('border-color', 'red');
         alert('Указанный e-mail не соответствует формату.\n\rПожалуйста введите его снова.');
         return;
     } else
-        $('.feedback-form input[name="Email"]').css('border-color', '#C8C8C8');
+        $('.contacts .feedback-form input[name="Email"]').css('border-color', '#C8C8C8');
 
     gopost();
 });
@@ -89,14 +101,14 @@ $(window).resize(function () {
 // Define the name of the Captcha field.
 // It serves to access BotDetect Captcha client-side API later.
 // http://captcha.com/doc/php/api/captcha-client-side-reference.html
-var captchaname = '.feedback-form input[name="Captchacode"]';
+var captchaname = '.contacts .feedback-form input[name="Captchacode"]';
 var captchaUserInputId = 'Captchacode';
 
 // AJAX argument is added to differentiate from regular POST.
 var validationUrl = "contacts.php?AJAX=1";
 
 // Collect form elements we want to handle.
-var formElements = $('.feedback-form input, .feedback-form textarea');
+var formElements = $('.contacts .feedback-form input, .contacts .feedback-form textarea');
 //var form = $('#contactForm');
 
 /*formElements.blur(
@@ -207,9 +219,9 @@ function postValidation(data, status){
 }*/
 
 $(document).ready(function () {
-    $('.feedback-form .LBD_CaptchaDiv, .feedback-form .LBD_CaptchaImageDiv, .feedback-form .LBD_CaptchaIconsDiv').removeAttr('style');
+    $('.contacts .feedback-form .LBD_CaptchaDiv, .contacts .feedback-form .LBD_CaptchaImageDiv, .contacts .feedback-form .LBD_CaptchaIconsDiv').removeAttr('style');
 
-    $('.feedback-form .LBD_CaptchaImageDiv a').attr({'href': 'javascript:void(0)', 'target': '_self', 'title': 'Нажмите для обновления картинки'})
+    $('.contacts .feedback-form .LBD_CaptchaImageDiv a').attr({'href': 'javascript:void(0)', 'target': '_self', 'title': 'Нажмите для обновления картинки'})
         .click(function(){
             ContactCaptcha.ReloadImage();
             return false;

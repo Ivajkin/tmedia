@@ -5,6 +5,7 @@ $header_h1 = '<h1 role="heading">как с <a href="callto:+79243060613"><span c
 $main_block .= 'content/contacts/main.html';
 $more_block .= 'content/contacts/more.php';
 $script_block .= 'content/contacts/code.js';
+$csslocal = 'contacts';
 $css_lib = <<<EOT
                 <link href="content/contacts/contacts.css" rel="stylesheet" />
                 <link href="add/botdetect/lib/botdetect/public/lbd_layout.css" rel="stylesheet" />

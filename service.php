@@ -5,6 +5,7 @@ require_once 'namespace.php';
     $main_block .= 'content/service/main.html';
     $more_block .= 'content/service/more.php';
     $script_block .= 'content/service/code.js';
+    $csslocal = 'service';
     $css_lib = <<<EOT
                 <link href="content/service/serv.css" rel="stylesheet" />
                 <link href="add/botdetect/lib/botdetect/public/lbd_layout.css" rel="stylesheet" />
@@ -12,7 +13,6 @@ EOT;
     $script_lib = <<<EOT
                 <script src="js/jquery.maskedinput.min.js"></script>
                 <script src="js/jquery.transit.min.js"></script>
-                <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
 EOT;
 
 // PHP v5.2.0+ required

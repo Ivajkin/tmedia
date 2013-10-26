@@ -5,6 +5,7 @@ require_once 'namespace.php';
     $main_block .= 'content/main/main.html';
     $more_block .= 'content/main/more.html';
     $script_block .= 'content/main/code.js';
+    $csslocal = 'index';
     $css_lib = '<link href="content/main/main.css" rel="stylesheet">';
     $script_lib = '';
 
