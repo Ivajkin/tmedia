@@ -55,6 +55,7 @@ jQuery(document).ready(function(){
         arrowtop:50,
         timeropacity:0.6,
         //navthumbnavigationarrowimage:"carouselarrows-32-32-0.png",
+        navthumbnavigationarrowimage:"",
         navshowplaypausestandalone:false,
         navpreviewbordercolor:"#ffffff",
         ribbonposition:"topleft",
