@@ -20,6 +20,13 @@
      font-weight: 500;
  }
 
+[class|="amazingslider-watermark"] {
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0) !important; /* IE 5.5+*/
+    -moz-opacity: 0 !important; /* Mozilla 1.6 и ниже */
+    -khtml-opacity: 0 !important; /* Konqueror 3.1, Safari 1.1 */
+    opacity: 0 !important; /* CSS3 - Mozilla 1.7b +, Firefox 0.9 +, Safari 1.2+, Opera 9+ */
+}
+
 /*.ams-container .amazingslider-nav-0 {
     margin-top: 40px !important;
 }*/

@@ -18,6 +18,7 @@ var oldpage = '.oldpage';
 var oldp = 'oldpage';
 
 var firstpage= true;
+var rqlock= false;
 var loadstat= {
     lock: false,
     sum: 0,
@@ -115,18 +116,35 @@ var gotopage= function(query){
         location.assign('#');
     rqjob();
 }
-
-var rqjob= function(){
-    viewpre();
+//On History Navigation
+/*var isHashChange = ("onhashchange" in window);
+var hashHandler = function (event) {
+    // event.oldURL, event.newURL
+    //location.reload();
     rq= location.href.match(/#!(\/(.+))/i);
     if (rq) {
-        curpage= rq[2];
+        gotopage(rq[2]);
     }
     else {
-        curpage= 'index';
+        gotopage();
     }
-    console.log(pages[curpage]);
-    viewpost(pages[curpage]);
+}
+window.addEventListener("hashchange", hashHandler, true);*/
+
+var rqjob= function(){
+    if (!rqlock) {
+        rqlock= true;
+        viewpre();
+        rq= location.href.match(/#!(\/(.+))/i);
+        if (rq) {
+            curpage= rq[2];
+        }
+        else {
+            curpage= 'index';
+        }
+        console.log(pages[curpage]);
+        viewpost(pages[curpage]);
+    }
 }
 
 /******************
@@ -325,22 +343,59 @@ var execjs= function(page){
 }
 
 var execjsrealy= function(page, callback){
+    if (curpage == 'service') {
+        if ((typeof textarea_resize) == 'function') {
+            textarea_resize();
+            captcha_resize();
+        }
+    }
     if (curpage == 'contacts') {
-        new DGWidgetLoader(".c-map",
+        if ((typeof textarea_resize) == 'function') {
+            textarea_resize();
+            captcha_resize();
+        }
+        setTimeout(function(){
+            new DGWidgetLoader(".c-map",
             {
                 "borderColor": "#a3a3a3", "width": "100%", "height": "100%", "wid": "a5d802d5725202c5b075b3d09ddaa596", "pos": {"lon": "135.05346286272", "lat": "48.533504964611", "zoom": "16"}, "opt": {"ref": "hidden", "card": ["name"], "city": "khabarovsk"},
                 "org": [
                     {"id": "4926340373587061", "hash": "6579qa34092IJ1H8ddd4uvgc43380J344Ac29565388A3158485969G71J0I7A894"}
                 ]
             });
+        }, 1000);
+    }
+    if (curpage == 'portfolio') {
+        $('[class|="amazingslider-watermark"]').remove();
     }
     loadcode(page.js, function(data){
+        if (curpage == 'contacts' || curpage == 'service') {
+            textarea_resize();
+            captcha_resize();
+        }
+        rqlock = false;
+        /*var hashback= location.href;
+        setTimeout(function eventhash(){
+            if (hashback != location.href) {
+                hashback= location.href;
+                location.reload();
+                rqjob();
+            }
+        }, 200);*/
+        var isHashChange = ("onhashchange" in window);
+        var hashHandler = function (event) {
+            // event.oldURL, event.newURL
+            rqjob();
+        }
+        window.addEventListener("hashchange", hashHandler, false);
         callback();
     });
 }
 var showpage= function(callback){
     $(idpage+' '+oldpage).fadeOut('slow', function(){
         $(oldpage).remove();
+        if (oldp == 'portfolio') {
+            $('#html5-lightbox').remove();
+        }
         //$(idpage+' '+newpage).toggleClass('invisible')
         //.toggleClass('simplehide');
         $(idpage+' '+newpage).fadeIn('slow', function(){

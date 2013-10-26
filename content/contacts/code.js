@@ -8,7 +8,7 @@ textarea_resize= function(){
     $('.contacts .allend .feedback-form>div').eq(2).css('height',
         2*$('.contacts .allend .feedback-form>div').eq(0).height()*true_h+'px');
 
-    /*$('.contacts .allend .feedback-form>div').eq(2).css('height',
+    /*('.contacts .allend .feedback-form>div').eq(2).css('height',
      2*$('.contacts .allend .feedback-form>div').eq(0).height()*true_h+'px');
 
      tmp= $('.contacts .allend .feedback-form>div').eq(2).height()- (

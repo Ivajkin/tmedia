@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 $(document).ready(function(){
-    $('.amazingslider-watermark-0').remove();
+    $('[class|="amazingslider-watermark"]').remove();
     /*$('.ams-container [class|="amazingslider-title"]').each(function(){
         txt= $(this).text();
         $(this).empty()
