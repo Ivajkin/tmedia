@@ -260,6 +260,7 @@ $('.service .main section .site-ext>div').mouseenter( function(){
     $('.service .main section .site-ext>div.hovered').toggleClass('hovered');
     $(this).toggleClass('hovered');
 
+    $('.service .main section .site-data>div').stop(true,true);
     $('.service .main section .site-data>div').eq(idprev).fadeOut(hidetime, function(){
         $('.service .main section .site-data>div').eq(idnext).fadeIn(hidetime*0.7, function(){
 
