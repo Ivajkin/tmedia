@@ -213,6 +213,19 @@ AddDefaultCharset utf-8
     Options +FollowSymlinks
   # Options +SymLinksIfOwnerMatch
     RewriteEngine On
+
+    RewriteRule ^([a-zA-Zа-яА-Я0-9_-]+)$ $1.php
+    #RewriteRule ^([a-zA-Zа-яА-Я0-9_-]+)/$ $1.php
+
+    #RewriteRule ^([a-zA-Zа-яА-Я0-9_-]+)$ index.php?q=$1
+    RewriteRule ^([a-zA-Zа-яА-Я0-9_-]+)/$ index.php?q=$1
+    #RewriteRule ^([a-zA-Zа-яА-Я0-9_-]+)$ ?q=$1
+    #RewriteRule ^([a-zA-Zа-яА-Я0-9_-]+)/$ ?q=$1
+
+    #RewriteRule ^#!/([a-zA-Z0-9_-]+)$ index.php?q=$1
+    #RewriteRule ^#!/([a-zA-Z0-9_-]+)/$ index.php?q=$1
+    #RewriteRule ^#!/([a-zA-Z0-9_-]+)$ ?q=$1
+    #RewriteRule ^#!/([a-zA-Z0-9_-]+)/$ ?q=$1
   # RewriteBase /
 </IfModule>
 

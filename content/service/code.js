@@ -221,7 +221,6 @@ infoclick= function(event){
                     .toggleClass('clearfix')
                     .children('div').fadeToggle('slow', function(){
                         infostatus= !infostatus;
-                        fix_resize();
                         $(event.currentTarget).children('h3').transition ({
                                 'left': '0%'
                             }, 800,
@@ -229,6 +228,8 @@ infoclick= function(event){
                             function(){$(this).css('position', 'static');}
                         );
                     });
+                setTimeout(fix_resize, 0);
+                //fix_resize();
                 $(event.currentTarget).toggle('puff');
             }
         });
@@ -239,9 +240,9 @@ infoclick= function(event){
             $('.service .main article section').not($(event.currentTarget)).toggle('explode', 'slow', function(){ //slideToggle
                 if (i++ == sectcount-1) {
                     infostatus= !infostatus;
-                    fix_resize();
                 }
             });
+            fix_resize();
         });
     }
 }
@@ -261,8 +262,9 @@ $('.service .main section .site-ext>div').mouseenter( function(){
 
     $('.service .main section .site-data>div').eq(idprev).fadeOut(hidetime, function(){
         $('.service .main section .site-data>div').eq(idnext).fadeIn(hidetime*0.7, function(){
-            fix_resize();
+
         });
+        fix_resize();
     });
 });
 

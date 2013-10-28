@@ -45,9 +45,11 @@ $(document).ready(function () {
 
         $('.index .main section').stop(true,true);
         $('.index .main section').eq(idprev).fadeOut(hidetime, function(){
+
             $('.main section').eq(idnext).fadeIn(hidetime*0.7, function(){
-                fix_resize();
+
             });
+            fix_resize();
         });
     });
     //console.log(mediaq+' '+mediawidthmobile);

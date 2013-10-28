@@ -1,4 +1,4 @@
-<?php require_once 'namespace.php'; ?>
+<?php /*require_once 'namespace.php';*/ ?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -62,13 +62,13 @@
             <!--<h1 class="title">h1.title</h1>-->
             <nav class="clearfix" role="navigation">
                 <a href="/"><img class="simplehide" src="img/ico/about.png" alt="Techno Media Техно Медиа О нас" title="О нас" /><span>О нас</span></a>
-                <a href="portfolio.php"><img class="simplehide" src="img/ico/port.png" alt="Techno Media Техно Медиа Портфолио" title="Портфолио" /><span>Портфолио</span></a>
+                <a href="/portfolio"><img class="simplehide" src="img/ico/port.png" alt="Techno Media Техно Медиа Портфолио" title="Портфолио" /><span>Портфолио</span></a>
                 <a href="/" role="banner"><img src="img/logo.png"
                                                        alt="Техно Медиа -- разработка сайтов и програмного обеспечения"
                                                        title="Техно Медиа -- разработка сайтов и програмного обеспечения"/>
                 </a>
-                <a href="service.php"><img class="simplehide" src="img/ico/serv.png" alt="Techno Media Техно Медиа Услуги" title="Услуги" /><span>Услуги</span></a>
-                <a href="contacts.php"><img class="simplehide" src="img/ico/cont.png" alt="Techno Media Техно Медиа Контакты" title="Контакты" /><span>Контакты</span></a>
+                <a href="/service"><img class="simplehide" src="img/ico/serv.png" alt="Techno Media Техно Медиа Услуги" title="Услуги" /><span>Услуги</span></a>
+                <a href="/contacts"><img class="simplehide" src="img/ico/cont.png" alt="Techno Media Техно Медиа Контакты" title="Контакты" /><span>Контакты</span></a>
             </nav>
             <div class="clearfix" role="telephone">
                 <a class="simplelink" style="font-family: 'Segoe UI Semibold';" href="tel:+79243060613">+7(924) 306-06-13</a>
