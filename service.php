@@ -4,6 +4,7 @@ require_once 'namespace.php';
     $header_h1 = '<h1 role="heading">что <a href="callto:+79243060613"><span class="mcolor">мы</span></a> можем предложить</h1>';
     $main_block .= 'content/service/main.html';
     $more_block .= 'content/service/more.php';
+    $social_block .= 'tpl/social.html';
     $script_block .= 'content/service/code.js';
     $csslocal = 'service';
     $css_lib = <<<EOT

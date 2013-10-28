@@ -1,3 +1,5 @@
+.presocial {margin-top: 1.33em;}
+
 .contacts .main .c-info {
     padding-left: 3%;
     vertical-align: top;
@@ -192,6 +194,9 @@ MOBILE: Main
 }*/
 
 @media only screen and (min-width: 520px) {
+
+    .presocial {margin-top: 0;}
+    .social {margin-top: 1.33em;}
 
     .contacts .main .c-map {
         width: 60%;

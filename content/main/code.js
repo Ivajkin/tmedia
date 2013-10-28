@@ -34,6 +34,10 @@ function animateScroll(name) {
 
 /*}*/
 
+$('.index .main article div').click(function(){
+   location.assign('/blog');
+});
+
 $(document).ready(function () {
     $('.index .main>div>div').mouseenter( function(){
         idprev= parseInt($('.index .main div.hovered').data('id'));

@@ -51,6 +51,7 @@ var pages= {
         h1: '<h1 role="heading">что такое <a href="callto:+79243060613"><span class="tcolor">techno</span><span class="mcolor">media</span></a></h1>',
         main: 'content/main/main.html',
         more: 'content/main/more.html',
+        social: true,
         csslib: ['content/main/main.css'],
         jslib: [],
         js: 'content/main/code.js',
@@ -60,6 +61,7 @@ var pages= {
         h1: '<h1 role="heading">что такое <a href="callto:+79243060613"><span class="tcolor">techno</span><span class="mcolor">media</span></a></h1>',
         main: 'content/service/main.html',
         more: 'content/service/more.html',
+        social: true,
         csslib: ["content/service/serv.css", "add/botdetect/lib/botdetect/public/lbd_layout.css"],
         jslib: ["js/jquery.maskedinput.min.js", "js/jquery.transit.min.js", "js/jquery-ui-1.10.3.custom.min.js"],
         js: 'content/service/code.js',
@@ -70,6 +72,7 @@ var pages= {
         main: 'content/contacts/main_ajax.html',
         more: 'content/contacts/more.html',
         csslib: ["content/contacts/contacts.css", "add/botdetect/lib/botdetect/public/lbd_layout.css"],
+        social: true,
         jslib: ['js/2Gis.DWidgetLoader.js'],
         js: 'content/contacts/code.js',
         jsasynx: true
@@ -78,6 +81,7 @@ var pages= {
         h1: '<h1 role="heading">наши работы</h1>',
         main: 'content/portfolio/portfolio.html',
         more: '',
+        social: false,
         csslib: ['add/amslider/amslider.css'],
         jslib: ["add/amslider/sliderengine/amazingslider.js", "add/amslider/sliderengine/initslider-1_ajax.js"],
         js: 'content/portfolio/code.js',
@@ -86,7 +90,8 @@ var pages= {
 }
 
 var tpls= {
-    main: {url: "tpl/tpl.html", data: ''}
+    main: {url: "tpl/tpl.html", data: ''},
+    social: {url: 'tpl/social.html', data: ''}
 }
 
 /*******************
@@ -95,6 +100,9 @@ var tpls= {
  *
  ******************/
 
+loadtext(tpls.social.url, function(data){
+    tpls.social.data= data;
+});
 loadtext(tpls.main.url, function(data){
     tpls.main.data= data;
     rqjob();
@@ -181,7 +189,7 @@ var viewpost= function(page){
     $(newpage).find('.head>div').append(page.h1);
 
     loadstat.reset();
-    loadstat.limit= 2;
+    loadstat.limit= 3;
     if (page.main)
         loadtext(page.main, function(data){
             $(newpage).find('.main').append(data);
@@ -191,6 +199,16 @@ var viewpost= function(page){
                 else
                     loadstat.add();
             }, loadstat.waitmin);
+            if (page.social) {
+                $(newpage).find('.main').append(tpls.social.data);
+                setTimeout( function tmr(){
+                    if (loadstat.lock)
+                        setTimeout(tmr, loadstat.waitmax);
+                    else
+                        loadstat.add();
+                }, loadstat.waitmin);
+            } else
+                loadstat.add();
         });
     else
         loadstat.add();
@@ -362,6 +380,7 @@ var execjsrealy= function(page, callback){
                     {"id": "4926340373587061", "hash": "6579qa34092IJ1H8ddd4uvgc43380J344Ac29565388A3158485969G71J0I7A894"}
                 ]
             });
+            fix_resize();
         }, 1000);
     }
     if (curpage == 'portfolio') {

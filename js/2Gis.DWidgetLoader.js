@@ -15,6 +15,7 @@ function DGWidgetLoader(insertid, a) {
     this.options.divId = "widget";
     window.allWidgetsOptions.push(this.options);
     this.writeIframe(insertid);
+    fix_resize();
     (function (a) {
         setTimeout(function () {
             c.writeIframeContent(a)

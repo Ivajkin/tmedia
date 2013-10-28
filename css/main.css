@@ -296,6 +296,10 @@ nav {
     color: #440e62;
 }
 
+.social {
+    border-top: 1px solid #9900ad;
+}
+
 /**************
 *******Font Fixes***
 *************/
@@ -421,6 +425,28 @@ nav a:hover {
     padding: 1em 0.75em;
 }
 
+.presocial {margin-top: 1.33em;}
+.social {}
+.social h4 {
+    margin: 0.5em 0;
+}
+.social a {
+    color: #EAECF6;/*#efcfff*/
+    margin-right: 1em;
+    text-decoration: none;
+}
+.social a:last-child {margin-right: 0;}
+.social a>img {width: 16px; height: 16px;}
+.social a>span:hover {
+    text-decoration: underline;
+}
+.social a:first-child {
+    background: #9C27B1;/*#800098;*/
+    padding: 0.2em 0.4em 0.4em 0.35em;
+    text-align: center;
+    font-family: 'Segoe UI Semibold';
+}
+.social a:first-child:hover {background: #9900ad;}
 /* ===============
     ALL: IE Fixes
    =============== */
@@ -643,6 +669,9 @@ a.simplelink:hover {
     -khtml-opacity: 0; /* Konqueror 3.1, Safari 1.1 */
     opacity: 0; /* CSS3 - Mozilla 1.7b +, Firefox 0.9 +, Safari 1.2+, Opera 9+ */
 
+}
+.s-clear {
+    clear: both;
 }
 
 .visuallyhidden {

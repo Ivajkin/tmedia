@@ -12,6 +12,7 @@ require_once 'namespace.php';
                 $header_h1 = '<h1 role="heading">наши работы</h1>';
                 $main_block .= 'content/portfolio/portfolio.html';
                 $more_block .= '';
+                $social_block .= '';
                 $script_block .= 'content/portfolio/code.js';
                 $csslocal = 'portfolio';
                 $css_lib = '<link href="add/amslider/amslider.css" rel="stylesheet">';
@@ -30,6 +31,7 @@ EOT;
                 $header_h1 = '<h1 role="heading">как с <a href="callto:+79243060613"><span class="mcolor">нами</span></a> связаться</h1>';
                 $main_block .= 'content/contacts/main.html';
                 $more_block .= 'content/contacts/more.php';
+                $social_block .= 'tpl/social.html';
                 $script_block .= 'content/contacts/code.js';
                 $csslocal = 'contacts';
                 $css_lib = <<<EOT
@@ -63,6 +65,7 @@ EOT;
             $header_h1 = '<h1 role="heading">что <a href="callto:+79243060613"><span class="mcolor">мы</span></a> можем предложить</h1>';
             $main_block .= 'content/service/main.html';
             $more_block .= 'content/service/more.php';
+            $social_block .= 'tpl/social.html';
             $script_block .= 'content/service/code.js';
             $csslocal = 'service';
             $css_lib = <<<EOT
@@ -91,6 +94,13 @@ EOT;
 
             require("content/service/sendmail.php");
                 break;
+            case 'blog/':
+                header("Location: /blog");
+                break;
+            case 'blog':
+                header("Location: /blog");
+                include 'blog.php';
+                break;
             default:
                 $header_h1 = '<h1 role="heading">что такое <a href="callto:+79243060613"><span class="tcolor">techno</span><span class="mcolor">media</span></a></h1>';
                 $main_block .= 'content/main/main.html';
@@ -104,6 +114,7 @@ EOT;
         $header_h1 = '<h1 role="heading">что такое <a href="callto:+79243060613"><span class="tcolor">techno</span><span class="mcolor">media</span></a></h1>';
         $main_block .= 'content/main/main.html';
         $more_block .= 'content/main/more.html';
+        $social_block .= 'tpl/social.html';
         $script_block .= 'content/main/code.js';
         $csslocal = 'index';
         $css_lib = '<link href="content/main/main.css" rel="stylesheet">';

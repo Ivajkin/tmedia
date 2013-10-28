@@ -4,6 +4,7 @@ require_once 'namespace.php';
 $header_h1 = '<h1 role="heading">как с <a href="callto:+79243060613"><span class="mcolor">нами</span></a> связаться</h1>';
 $main_block .= 'content/contacts/main.html';
 $more_block .= 'content/contacts/more.php';
+$social_block .= 'tpl/social.html';
 $script_block .= 'content/contacts/code.js';
 $csslocal = 'contacts';
 $css_lib = <<<EOT

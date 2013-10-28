@@ -1,3 +1,16 @@
+<?php
+require_once 'namespace.php';
+
+    $header_h1 = '<h1 role="heading">Блог <a href="callto:+79243060613"><span class="tcolor">techno</span><span class="mcolor">media</span></a></h1>';
+    $main_block .= 'content/main/main.html';
+    $more_block .= '';
+    $script_block .= 'content/main/code.js';
+    $csslocal = 'index';
+    $css_lib = '<link href="content/main/main.css" rel="stylesheet">';
+    $script_lib = '';
+
+?>
+
 <?php /*require_once 'namespace.php';*/ ?>
 
 <!DOCTYPE html>
@@ -19,7 +32,7 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
-<!--Additional CSS Libs-->
+    <!--Additional CSS Libs-->
     <?php echo $css_lib; ?>
 
     <style media="screen" class="before-after">
@@ -43,8 +56,8 @@
 
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
-<body class="s-opacity">
-
+<body>
+<div style="-webkit-filter: blur(4px);">
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
@@ -64,8 +77,8 @@
                 <a href="/"><img class="simplehide" src="img/ico/about.png" alt="Techno Media Техно Медиа О нас" title="О нас" /><span>О нас</span></a>
                 <a href="/portfolio"><img class="simplehide" src="img/ico/port.png" alt="Techno Media Техно Медиа Портфолио" title="Портфолио" /><span>Портфолио</span></a>
                 <a href="/" role="banner"><img src="img/logo.png"
-                                                       alt="Техно Медиа -- разработка сайтов и програмного обеспечения"
-                                                       title="Техно Медиа -- разработка сайтов и програмного обеспечения"/>
+                                               alt="Техно Медиа -- разработка сайтов и програмного обеспечения"
+                                               title="Техно Медиа -- разработка сайтов и програмного обеспечения"/>
                 </a>
                 <a href="/service"><img class="simplehide" src="img/ico/serv.png" alt="Techno Media Техно Медиа Услуги" title="Услуги" /><span>Услуги</span></a>
                 <a href="/contacts"><img class="simplehide" src="img/ico/cont.png" alt="Techno Media Техно Медиа Контакты" title="Контакты" /><span>Контакты</span></a>
@@ -79,7 +92,15 @@
         <div class="main clearfix" role="main">
             <!--Main Content-->
             <?php include $main_block; ?>
-            <?php include $social_block; ?>
+            <div class="s-clear presocial"></div>
+            <section class="clearfix s-clear social">
+                <h4>Давайте дружить!</h4>
+                <div>
+                    <a href="javascript:void(0)" class="nowrap"><img src="img/vk_ico.png" alt="Техно Медиа Вконтакте" title="Техно Медиа Вконтакте" /> <span>Мы Вконтакте</span></a>
+                    <a href="javascript:void(0)" class="nowrap"><img src="img/f_ico.png" alt="Техно Медиа в Facebook" title="Техно Медиа в Facebook" /> <span>Мы в Facebook</span></a>
+                    <a href="javascript:void(0)" class="nowrap"><img src="img/b_ico.png" alt="Техно Медиа Блог" title="Техно Медиа Блог" /> <span>Наш блог</span></a>
+                </div>
+            </section>
         </div>
         <!-- #main -->
         <footer class="allend clearfix" role="complementary">
@@ -163,9 +184,9 @@
             b_angle= 0.6;
 
         /*$('style.before-after').empty();
-        $('style.before-after').append('.head:before, .head:after {border-top-width: ' + br_top_h + 'px;}' +
-            '.main:before, .main:after {border-bottom-width: ' + br_top_h + 'px;}'
-        );*/
+         $('style.before-after').append('.head:before, .head:after {border-top-width: ' + br_top_h + 'px;}' +
+         '.main:before, .main:after {border-bottom-width: ' + br_top_h + 'px;}'
+         );*/
         /*$('header.head:before, header.head:before').css('border-top-width') ;*/
 
         $('.west-side, .east-side').css('height', main_h + 2 * br_top_h + 'px');
@@ -177,22 +198,22 @@
             '<svg xmlns="http://www.w3.org/2000/svg" version="1.1">'+
                 '<polygon points="0,0 0,'+br_top_h+' '+eside_w+','+(b_angle*br_top_h)+' '+eside_w+',0" />'+
                 //'<path d="M0 0 L0 '+br_top_h+' L'+eside_w+' '+(0.4*br_top_h)+' L'+eside_w+' 0 Z" stroke-width="0" fill="#fff" />'+
-             '</svg>'
+                '</svg>'
         );
         $('.east-side .br-down').append(
             '<svg xmlns="http://www.w3.org/2000/svg" version="1.1">'+
                 '<polygon points="0,0 0,'+br_top_h+' '+eside_w+','+br_top_h+' '+eside_w+','+((1-b_angle)*br_top_h)+'" />'+
-            '</svg>'
+                '</svg>'
         );
         $('.west-side .br-up').append(
             '<svg xmlns="http://www.w3.org/2000/svg" version="1.1">'+
                 '<polygon points="0,0 '+wside_w+',0 '+wside_w+','+br_top_h+' 0,'+(b_angle*br_top_h)+'" />'+
-            '</svg>'
+                '</svg>'
         );
         $('.west-side .br-down').append(
             '<svg xmlns="http://www.w3.org/2000/svg" version="1.1">'+
                 '<polygon points="0,'+((1-b_angle)*br_top_h)+' '+0+','+br_top_h+' '+wside_w+','+br_top_h+' '+wside_w+',0" />'+
-            '</svg>'
+                '</svg>'
         );
 
         if ($('body').hasClass('s-opacity')) setTimeout(showpage, 200);
@@ -219,8 +240,62 @@
 </script>
 <!--Additional Script-->
 <script>
-	<?php include $script_block ?>
+    <?php include $script_block ?>
 </script>
+
+    <!-- blur для email -->
+    <div class="blur" style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+	background: black;
+	opacity: 0.2;
+"></div>
+</div>
+<div style="
+	width:30%;
+	background: #A7228E;
+	position: absolute;
+	left: 35%;
+	top: 30%;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	color: white;
+	text-align: center;
+	font-family: 'Segoe UI Semibold';
+">
+    <!-- Begin MailChimp Signup Form -->
+    <div id="mc_embed_signup">
+        <form action="http://live.us7.list-manage.com/subscribe/post?u=763f9ff74a892add4de7f7d54&amp;id=630f1b11d8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <h2 style="
+				margin: 10% 10% 10% 10%;
+				font-size: 1.6em;
+				text-transform: none;
+				color: white;
+		">Уже скоро мы раскроем все секреты своим любимым клиентам.</h2>
+            <div class="mc-field-group">
+                <input type="email" value="E-mail" style="
+			color: grey;
+			border: 0;
+			margin: 2%;
+			padding: 2%;
+			max-width: 80%;
+		" name="EMAIL" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'E-mail':this.value;" class="required email" id="mce-EMAIL">
+                <input type="submit" value="Хочу узнать об этом первым" style="
+																background: #992BAD;
+																border: 0;
+																margin: 2%;
+																padding: 2%;
+																color: white;
+																box-shadow: 0 0 1px rgba(0,0,0,0.5);
+																font-size: 1.075em;
+																max-width: 80%;
+															" name="subscribe" id="mc-embedded-subscribe" class="button">
+            </div>
+        </form>
+    </div>
+    <!--End mc_embed_signup-->
+</div>
+<!-- !blur для email -->
 
 
 </body>

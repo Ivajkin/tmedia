@@ -55,7 +55,17 @@
 .index .main article h3 {text-align: center;}
 .index .main article>section {
     /*position: absolute;*/
-    min-height: 300px;
+    /*min-height: 300px;*/
+}
+
+.index .main article div {
+    background: #800098;
+    /*width: 160px;*/
+    margin: 0 auto;
+}
+.index .main article div:hover {
+    background: #9900ad;
+    cursor: pointer;
 }
 
 /**********
@@ -163,6 +173,11 @@ MOBILE: Main
 .index .allend>article .text-cont:before,
 .index .allend>article .text-cont:after   {font-size: 2em;}
 .index .allend>article .text-cont:before {top: 10%;}
+
+.index .main article div {
+    width: 65%;
+    padding: 1px 0.5em;
+}
 
 /* ==========================================================================
    Media Queries
