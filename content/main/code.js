@@ -42,6 +42,7 @@ $(document).ready(function () {
     $('.index .main>div>div').mouseenter( function(){
         idprev= parseInt($('.index .main div.hovered').data('id'));
         idnext= parseInt($(this).data('id'));
+        if (idprev == idnext) return;
         hidetime= 600;
 
         $('.index .main div.hovered').toggleClass('hovered');

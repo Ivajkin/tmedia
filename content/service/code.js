@@ -255,6 +255,7 @@ infoclick= function(event){
 $('.service .main section .site-ext>div').mouseenter( function(){
     idprev= parseInt($('.service .main section .site-ext>div.hovered').data('id'));
     idnext= parseInt($(this).data('id'));
+    if (idprev == idnext) return;
     hidetime= 600;
 
     $('.service .main section .site-ext>div.hovered').toggleClass('hovered');
