@@ -182,7 +182,7 @@ $validationResult = array();
 
 // Type of request we are interested in. $_POST, $_GET or both - $_REQUEST
 $request = $_REQUEST;
-if (count($request)) {
+if (count($_POST) || count($_GET)) {
     foreach($request as $formItem => $value) {
         $validationMethod = "Validate" . ucfirst($formItem);
         if (is_callable($validationMethod)) {
