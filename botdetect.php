@@ -7,10 +7,10 @@ if (!defined('__DIR__')) { define('__DIR__', dirname(__FILE__)); }
 // 1. define BotDetect paths
 
 // physical path to Captcha library files (the BotDetect folder)
-$LBD_Include_Path = __DIR__ . '/add/botdetect/lib/botdetect/';
+$LBD_Include_Path = __DIR__ . '/add/BotDetect/lib/botdetect/';
 
 // BotDetect Url prefix (base Url of the BotDetect public resources)
-$LBD_Url_Root = '/add/botdetect/lib/botdetect/public/';
+$LBD_Url_Root = '/add/botdetect/lib/BotDetect/public/';
 
 // physical path to the folder with the (optional!) config override file
 $LBD_Config_Override_Path = __DIR__;

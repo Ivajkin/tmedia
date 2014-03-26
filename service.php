@@ -19,7 +19,7 @@ EOT;
 // PHP v5.2.0+ required
 session_start();
 
-require("add/botdetect/requirements.php");
+require("add/BotDetect/requirements.php");
 
 // include BotDetect Captcha library files
 require("botdetect.php");
