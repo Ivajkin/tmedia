@@ -101,6 +101,17 @@ EOT;
                 header("Location: /blog");
                 include 'blog.php';
                 break;
+            case 'strategy/': header("Location: /strategy");
+                              break;
+            case 'strategy': header("Location: /strategy");
+                $header_h1 = '<h1 role="heading">Наша <a href="callto:+79243060613"><span class="tcolor">techno</span><span class="mcolor">Стратегия</span></a></h1>';
+                $main_block .= 'content/strategy/main.html';
+                $more_block .= 'content/strategy/more.html';
+                $script_block .= '';
+                $csslocal = 'strategy';
+                $css_lib = '';
+                $script_lib = '';
+                             break;
             default:
                 $header_h1 = '<h1 role="heading">что такое <a href="callto:+79243060613"><span class="tcolor">techno</span><span class="mcolor">media</span></a></h1>';
                 $main_block .= 'content/main/main.html';

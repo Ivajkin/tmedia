@@ -57,6 +57,20 @@ $(document).ready(function () {
             fix_resize();
         });
     });
+
+    $(".index .main article").niceScroll({
+        cursorcolor:"#800098",
+        cursoropacitymin: 0,
+        cursoropacitymax: 0.8,
+        cursorborderradius: 0,
+        hwacceleration: true,
+        autohidemode: true,
+        cursorwidth: '7px'
+    });
+    $('.strategy').click(function(){
+        location.assign("/strategy");
+    });
+
     //console.log(mediaq+' '+mediawidthmobile);
 
     /*if (!isMobile.phone && !isMobile.apple.ipod) {

@@ -51,6 +51,8 @@
     text-align: left;
     vertical-align: middle;
     position: relative;
+    max-height: 525px;
+    overflow-y: auto;
 }
 .index .main article h3 {text-align: center;}
 .index .main article>section {
